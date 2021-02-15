@@ -294,15 +294,11 @@ mod tests {
     use nu_errors::ShellError;
 
     fn full_tests() -> Vec<Command> {
-        vec![
-            whole_stream_command(Append),
-        ]
+        vec![whole_stream_command(Append)]
     }
 
     fn only_examples() -> Vec<Command> {
-        let mut commands = full_tests();
-        commands.extend(vec![whole_stream_command(Flatten)]);
-        commands
+        full_tests()
     }
 
     #[test]

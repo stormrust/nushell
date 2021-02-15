@@ -54,7 +54,7 @@ pub fn test_examples(cmd: Command) -> Result<(), ShellError> {
         let block = parse_line(sample_pipeline.example, &ctx)?;
 
         //println!("{:#?}", block);
-        println!("\n{:#?}\n",sample_pipeline.example);
+        println!("\n{:#?}\n", sample_pipeline.example);
         println!("{:?}", block);
 
         if let Some(expected) = &sample_pipeline.result {
