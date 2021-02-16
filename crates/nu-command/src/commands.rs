@@ -297,13 +297,9 @@ mod tests {
         vec![whole_stream_command(Append)]
     }
 
-    fn only_examples() -> Vec<Command> {
-        full_tests()
-    }
-
     #[test]
     fn examples_work_as_expected() -> Result<(), ShellError> {
-        for cmd in only_examples() {
+        for cmd in full_tests() {
             test_examples(cmd)?;
         }
 
