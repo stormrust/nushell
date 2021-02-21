@@ -20,6 +20,7 @@ pub async fn run_block(
     ctx: &EvaluationContext,
     mut input: InputStream,
 ) -> Result<InputStream, ShellError> {
+    println!("block.rs run_block");
     let mut output: Result<InputStream, ShellError> = Ok(InputStream::empty());
     for (_, definition) in block.definitions.iter() {
         ctx.scope.add_definition(definition.clone());
@@ -142,6 +143,7 @@ async fn run_pipeline(
     ctx: &EvaluationContext,
     mut input: InputStream,
 ) -> Result<InputStream, ShellError> {
+    println!("block.rs run_pipeline");
     for item in commands.list.clone() {
         input = match item {
             ClassifiedCommand::Dynamic(call) => {
