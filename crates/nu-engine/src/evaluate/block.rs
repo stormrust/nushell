@@ -145,6 +145,7 @@ async fn run_pipeline(
     for item in commands.list.clone() {
         input = match item {
             ClassifiedCommand::Dynamic(call) => {
+                println!("block.rs run_pipeline Dynamic");
                 let mut args = vec![];
                 if let Some(positional) = call.positional {
                     for pos in &positional {

@@ -12,6 +12,7 @@ pub(crate) async fn run_expression_block(
     expr: &SpannedExpression,
     ctx: &EvaluationContext,
 ) -> Result<InputStream, ShellError> {
+    println!("expr.rs run_expression_block");
     if log_enabled!(log::Level::Trace) {
         trace!(target: "nu::run::expr", "->");
         trace!(target: "nu::run::expr", "{:?}", expr);
