@@ -19,6 +19,7 @@ pub(crate) async fn run_internal_command(
     context: &EvaluationContext,
     input: InputStream,
 ) -> Result<InputStream, ShellError> {
+    println!("internal.rs run_internal_command");
     if log_enabled!(log::Level::Trace) {
         trace!(target: "nu::run::internal", "->");
         trace!(target: "nu::run::internal", "{}", command.name);
