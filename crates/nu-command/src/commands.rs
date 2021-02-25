@@ -160,7 +160,7 @@ pub(crate) mod uniq;
 pub(crate) mod version;
 pub(crate) mod with_env;
 pub(crate) use autoview::Autoview;
-pub(crate) use cd::Cd;
+//pub(crate) use cd::Cd;
 
 /*
 pub(crate) use ansi::Ansi;

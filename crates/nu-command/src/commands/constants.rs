@@ -1,3 +1,4 @@
+/*
 pub const BAT_LANGUAGES: &[&str] = &[
     "as",
     "csv",
@@ -356,3 +357,4 @@ pub const BAT_LANGUAGES: &[&str] = &[
     "yml",
     "sublime-syntax",
 ];
+*/
