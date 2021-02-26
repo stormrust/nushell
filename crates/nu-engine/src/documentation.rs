@@ -10,14 +10,14 @@ const COMMANDS_DOCS_DIR: &str = "docs/commands";
 
 pub struct DocumentationConfig {
     no_subcommands: bool,
-    no_colour: bool,
+    no_color: bool,
 }
 
 impl Default for DocumentationConfig {
     fn default() -> Self {
         DocumentationConfig {
             no_subcommands: false,
-            no_colour: false,
+            no_color: false,
         }
     }
 }
@@ -48,7 +48,7 @@ fn generate_doc(name: &str, scope: &Scope) -> IndexMap<String, Value> {
             scope,
             &DocumentationConfig {
                 no_subcommands: true,
-                no_colour: true,
+                no_color: true,
             },
         ))
         .into_untagged_value(),
@@ -67,10 +67,12 @@ pub fn generate_docs(scope: &Scope) -> Value {
         if name.contains(' ') {
             let split_name = name.split_whitespace().collect_vec();
             let parent_name = split_name.first().expect("Expected a parent command name");
-            let sub_names = cmap
-                .get_mut(*parent_name)
-                .expect("Expected a entry for parent");
-            sub_names.push(name.to_owned());
+            if cmap.contains_key(*parent_name) {
+                let sub_names = cmap
+                    .get_mut(*parent_name)
+                    .expect("Expected a entry for parent");
+                sub_names.push(name.to_owned());
+            }
         } else {
             cmap.insert(name.to_owned(), Vec::new());
         };
@@ -211,7 +213,7 @@ pub fn get_documentation(
         long_desc.push_str("  ");
         long_desc.push_str(example.description);
 
-        if config.no_colour {
+        if config.no_color {
             long_desc.push_str(&format!("\n  > {}\n", example.example));
         } else {
             let colored_example =
