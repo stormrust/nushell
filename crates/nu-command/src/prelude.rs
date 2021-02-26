@@ -66,7 +66,7 @@ pub(crate) use nu_source::{PrettyDebug, Span, SpannedItem, Tag, Text};
 pub(crate) use nu_stream::ToInputStream;
 pub(crate) use nu_stream::{InputStream, Interruptible, OutputStream};
 pub(crate) use nu_value_ext::ValueExt;
-pub(crate) use num_bigint::BigInt;
+//pub(crate) use num_bigint::BigInt;
 pub(crate) use num_traits::cast::ToPrimitive;
 pub(crate) use serde::Deserialize;
 pub(crate) use std::collections::VecDeque;
