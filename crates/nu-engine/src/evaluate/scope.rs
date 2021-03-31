@@ -33,6 +33,19 @@ impl Scope {
         None
     }
 
+    pub fn get_custom_commands(&self) -> IndexMap<String, Block> {
+        let mut output = IndexMap::new();
+
+        for frame in self.frames.lock().iter().rev() {
+            for v in frame.custom_commands.iter() {
+                if !output.contains_key(v.0) {
+                    output.insert(v.0.clone(), v.1.clone());
+                }
+            }
+        }
+        output
+    }
+
     pub fn get_aliases(&self) -> IndexMap<String, Vec<Spanned<String>>> {
         let mut output = IndexMap::new();
 
