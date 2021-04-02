@@ -37,8 +37,10 @@ pub(crate) fn parse_definition(call: &LiteCommand, scope: &dyn ParserScope) -> O
         let name = trim_quotes(&call.parts[1].item);
         let (mut signature, err) = parse_signature(&name, &call.parts[2]);
 
+        println!("{:?}", name);
         //Add commands comments to signature usage
         signature.usage = call.comments_joined();
+        println!("{:?}", signature.usage);
 
         if err.is_some() {
             return err;
