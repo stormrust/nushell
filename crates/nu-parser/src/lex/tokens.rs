@@ -100,6 +100,7 @@ impl LiteComment {
                     let rest_span = Span::new(rest_start, rest_start + self.rest.len());
 
                     let rest = format!("{}{}", included_ws, self.rest.item).spanned(rest_span);
+                    println!("{:?}", rest);
 
                     LiteComment {
                         leading_ws: Some(excluded_ws),
