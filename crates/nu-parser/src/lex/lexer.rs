@@ -489,6 +489,7 @@ pub fn lex(input: &str, span_offset: usize) -> (Vec<Token>, Option<ParseError>) 
             let idx = *idx;
 
             let comment = parse_comment(&mut char_indices, idx);
+            println!("{:?}", comment);
             let span = comment.span();
 
             output.push(Token::new(TokenContents::Comment(comment), span));
